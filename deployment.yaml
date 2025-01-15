@@ -14,11 +14,13 @@ spec:
         app: webserver
     spec:
       containers:
-      - image: jstastny/envechoserver
+      - image: hashicorp/http-echo
         name: guestbook-ui
         ports:
-        - containerPort: 3000
+        - containerPort: 5678
+          name: http
+          protocol: TCP
         env:
-        - name: TEXT
+        - name: ECHO_TEXT
           value: Hello World!
 
